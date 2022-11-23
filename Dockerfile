@@ -16,7 +16,7 @@ RUN groupadd --gid ${USER_GID} ${USERNAME} \
     && echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/rspamd.gpg] http://rspamd.com/apt-stable/ $CODENAME main" | tee /etc/apt/sources.list.d/rspamd.list \
     && echo "deb-src [arch=amd64 signed-by=/etc/apt/keyrings/rspamd.gpg] http://rspamd.com/apt-stable/ $CODENAME main"  | tee -a /etc/apt/sources.list.d/rspamd.list \
     && apt update \
-    && apt --no-install-recommends install rspamd sudo curl mc -y \
+    && apt --no-install-recommends install rspamd sudo curl -y \
     && apt autoremove \
     && usermod -aG _rspamd ${USERNAME} \
     && echo ${USERNAME} "ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers \
