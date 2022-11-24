@@ -27,6 +27,7 @@ COPY local.d /etc/rspamd/local.d
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh \
     && mkdir -m 755 -p /run/rspamd \
     && chown -R _rspamd:_rspamd /run/rspamd
+    && ln -s /dev/stdout /var/log/rspamd/rspamd.log
 
 USER ${USERNAME}
 WORKDIR /etc/rspamd
