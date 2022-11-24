@@ -31,7 +31,7 @@ RUN chmod +x /usr/local/bin/docker-entrypoint.sh \
 
 USER ${USERNAME}
 WORKDIR /etc/rspamd
-VOLUME [ "/etc/rspamd", "/var/lib/rspamd" ]
+VOLUME /etc/rspamd
 EXPOSE 11332 11333 13334
 HEALTHCHECK --start-period=350s CMD curl -skfLo /dev/null http://localhost:11334/
 ENTRYPOINT ["docker-entrypoint.sh"]
